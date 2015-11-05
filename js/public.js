@@ -9,9 +9,14 @@ $(function () {
   var $mapMenu = $('#map_menu');
   var $markerMenu = $('#marker_menu');
   var $polylineMenu = $('#polyline_menu');
+  var $export = $('#export');
   var $length = $('#length');
   var _map = null;
   var _markers = [];
+ 
+  function formatDate (d) {
+    return  (d.getFullYear () + '_' + (d.getMonth () + 1) + '_' + d.getDate ()) + '_' + (d.getHours () + '_' + d.getMinutes () + '_' + d.getSeconds ());
+  }
 
   var getPixelPosition = function () {
     var scale = Math.pow (2, this.map.getZoom ());
@@ -76,6 +81,10 @@ $(function () {
     }
     if (_markers.length > 1)
       calculateLength (_markers.map (function (t) { return t.getPosition (); }));
+    if (_markers.length)
+      $export.show ();
+    else
+      $export.hide ();
   }
   function circlePath (r) {
     return 'M 0 0 m -' + r + ', 0 '+
@@ -109,7 +118,7 @@ $(function () {
   }
   function initialize () {
     _map = new google.maps.Map ($map.get (0), {
-        zoom: 16,
+        zoom: 14,
         zoomControl: true,
         scrollwheel: true,
         scaleControl: true,
@@ -117,7 +126,7 @@ $(function () {
         navigationControl: true,
         streetViewControl: false,
         disableDoubleClickZoom: true,
-        center: new google.maps.LatLng (23.569396231491233, 120.3030703338623),
+        center: new google.maps.LatLng (25.054, 121.54),
       });
 
     google.maps.event.addListener (_map, 'rightclick', function (e) {
@@ -151,6 +160,12 @@ $(function () {
       if ($polylineMenu.polyline)
         initMarker (new google.maps.LatLng ($polylineMenu.data ('lat'), $polylineMenu.data ('lng')), _markers.indexOf ($polylineMenu.polyline.nextMarker));
       $polylineMenu.css ({ top: -100, left: -100 }).removeClass ('show');
+    });
+
+    $export.hide ().click (function () {
+      alasql ("SELECT * INTO XLSX('路線_" + formatDate (new Date()) + ".xlsx',{headers:true}) FROM ? ",[_markers.map (function (marker) {
+        return {'經度': '' + marker.position.lng (), '緯度': '' + marker.position.lat ()};
+      })]);
     });
 
   }

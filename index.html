@@ -5,13 +5,16 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
 
-    <title></title>
+    <title>路線圖</title>
 
-    <link href="css/public.css" rel="stylesheet" type="text/css" />
+    <link href="css/public.css?v=1" rel="stylesheet" type="text/css" />
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=geometry&language=zh-TW" language="javascript" type="text/javascript" ></script>
+    <script src="http://alasql.org/console/alasql.min.js"></script>
+    <script src="http://alasql.org/console/xlsx.core.min.js"></script>
+
     <script src="js/jquery_v1.10.2/jquery-1.10.2.min.js" language="javascript" type="text/javascript" ></script>
-    <script src="js/public.js" language="javascript" type="text/javascript" ></script>
+    <script src="js/public.js?v=1" language="javascript" type="text/javascript" ></script>
 
   </head>
   <body lang="zh-tw">
@@ -19,6 +22,7 @@
       <i></i><i></i><i></i><i></i>
       <div id='map'></div>
       <div id='length'>0</div>
+      <button type='button' id='export'>匯出經緯度 Excel</button>
       <div id='map_menu'><div><div class='add_marker'>新增節點</div></div></div>
       <div id='marker_menu'><div><div class='del'>刪除節點</div></div></div>
       <div id='polyline_menu'><div><div class='add'>插入節點</div></div></div>
