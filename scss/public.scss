@@ -87,6 +87,7 @@ a[href^="http://maps.google.com/maps"], a[href^="https://maps.google.com/maps"] 
     position: absolute;
     top: 10px;
     right: 10px;
+    display: none;
     @include button;
   }
   #length {
