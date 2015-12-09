@@ -90,6 +90,18 @@ a[href^="http://maps.google.com/maps"], a[href^="https://maps.google.com/maps"] 
     display: none;
     @include button;
   }
+  #github {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    @include button('pink');
+  }
+  #more {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    @include button('orange');
+  }
   #length {
     position: absolute;
     bottom: 10px;
