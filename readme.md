@@ -1,5 +1,5 @@
-# Welcome To OA's F2E Framework!
-OA 個人常用的前端工具總集合！ 
+# Welcome To OA's Google Maps Menu!
+利用 Google Maps js API 設計出規劃路線的工具，並且可以匯出路間經緯度 Excel
 
 ---
 ## 聲明
@@ -8,7 +8,7 @@ OA 個人常用的前端工具總集合！
 
 <br/>
 ## 簡介
-* 個人習慣工具，有興趣的參考吧！
+* 利用 Google Maps js API 設計出規劃路線的工具，並且可以匯出路間經緯度 Excel
 
 <br/>
 ## 關於
@@ -20,6 +20,6 @@ OA 個人常用的前端工具總集合！
 
 * 最新版本 - 1.2
 
-* GitHub - [OA's F2E Framework](https://github.com/comdan66/oaf2e/)
+* GitHub - [OA's Google Maps Menu](https://github.com/comdan66/OA-googleMapsMenu)
 
-* 更新日期 - 2015/05/26
+* 更新日期 - 2015/12/10
